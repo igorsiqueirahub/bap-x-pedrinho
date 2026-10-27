@@ -12,29 +12,11 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 ## Embed
 
-O UOL só aceita iframe, sem script. A altura é fixa e precisa caber o celular:
+Copie o conteúdo de [`embed.html`](embed.html) para o código-fonte da matéria.
 
-```html
-<iframe src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
-        width="100%" height="7700" frameborder="0"
-        title="A briga Bap x Pedrinho na Justiça"
-        loading="lazy"></iframe>
-```
+O iframe mostra a página inteira, sem barra de rolagem e sem script (o UOL só aceita iframe). Todos os tamanhos da página são proporcionais à largura, então a altura do iframe é calculada só com CSS: no celular (tela até 512px), 28,8 vezes a largura da coluna + 16px; no desktop e no tablet, 7.540px. Mesmo modelo de `flamengo-frustracoes`.
 
-Altura da página, com os blocos recolhíveis fechados:
-
-| Largura da coluna | Altura |
-|---|---|
-| 320px | 8.285px |
-| 360px | 7.589px |
-| 390px | 7.097px |
-| 414px | 6.882px |
-| 600px | 6.024px |
-| 720px ou mais | 5.574px |
-
-Abaixo de 360px, ou com os blocos recolhíveis abertos, o conteúdo passa da altura do iframe e aparece uma rolagem interna. No desktop sobra espaço em branco no fim.
-
-Se o sistema permitir altura diferente para celular e desktop: `7700` no celular e `5700` no desktop.
+Se o texto da página mudar, meça de novo a proporção altura/largura no celular e a altura no desktop e atualize `embed.html`.
 
 ## Antes de publicar
 
