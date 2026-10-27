@@ -30,5 +30,4 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 ## Antes de publicar
 
-- Incluir o crédito das fotos.
 - Atualizar o status do processo se houver decisão ou defesa de Pedrinho (o texto atual vai até o registro da ação, em 25/08/2026).
