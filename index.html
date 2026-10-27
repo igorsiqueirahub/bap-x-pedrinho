@@ -457,5 +457,23 @@
   </footer>
 
 </main>
+<script>
+  /* Versão com script do embed (embed-script.html): informa a altura do conteúdo ao site.
+     No embed só com iframe, nada disso é usado e a altura vem do CSS */
+  (function () {
+    if (window.parent === window) return;
+    var ultima = 0;
+    function enviar() {
+      var altura = Math.ceil(document.querySelector('main').getBoundingClientRect().bottom + window.pageYOffset);
+      if (altura === ultima) return; ultima = altura;
+      parent.postMessage({ type: 'bap-x-pedrinho:altura', altura: altura }, '*');
+    }
+    window.addEventListener('load', enviar);
+    window.addEventListener('resize', enviar);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(enviar);
+    if (window.ResizeObserver) new ResizeObserver(enviar).observe(document.querySelector('main'));
+    enviar();
+  })();
+</script>
 </body>
 </html>

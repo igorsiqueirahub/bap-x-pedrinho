@@ -1,0 +1,19 @@
+<!-- A briga Bap x Pedrinho na Justiça: embed com script (para sites que aceitam <script>).
+     O script ajusta a altura do iframe ao conteúdo. Antes de ele rodar, vale a altura calculada pelo CSS,
+     a mesma do embed.html; então o iframe nunca aparece cortado. -->
+<div class="bap-x-pedrinho-embed" style="margin-top:8px;margin-right:0;margin-bottom:8px;margin-left:0;border-top:1px solid #E6E6E6;border-bottom:1px solid #E6E6E6">
+  <iframe class="bap-x-pedrinho" src="https://igorsiqueirahub.github.io/bap-x-pedrinho/" title="A briga Bap x Pedrinho na Justiça" loading="lazy" scrolling="no"
+    width="100%" height="7540" style="display:block;width:100%;height:max(7540px, min(calc((100vw - 32px) * 28.8 + 16px), calc((513px - 100vw) * 100000)));border:0;overflow:hidden"></iframe>
+</div>
+<script>
+/* Ajusta a altura do iframe ao conteúdo da página */
+(function () {
+  if (window.__bapXPedrinho) return; window.__bapXPedrinho = true;
+  window.addEventListener('message', function (e) {
+    var d = e.data; if (!d || d.type !== 'bap-x-pedrinho:altura' || !(d.altura > 0)) return;
+    document.querySelectorAll('iframe.bap-x-pedrinho').forEach(function (f) {
+      if (f.contentWindow === e.source) f.style.height = d.altura + 'px';
+    });
+  });
+})();
+</script>

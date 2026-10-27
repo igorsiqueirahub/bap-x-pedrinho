@@ -16,6 +16,10 @@ Copie o conteúdo de [`embed.html`](embed.html) para o código-fonte da matéria
 
 O iframe mostra a página inteira, sem barra de rolagem e sem script (o UOL só aceita iframe). Todos os tamanhos da página são proporcionais à largura, então a altura do iframe é calculada só com CSS: no celular (tela até 512px), 28,8 vezes a largura da coluna + 16px; no desktop e no tablet, 7.540px. Mesmo modelo de `flamengo-frustracoes`.
 
+### Versão com script
+
+Para sites que aceitam `<script>`, use [`embed-script.html`](embed-script.html). O script ajusta a altura do iframe ao conteúdo exato, sem sobra. Antes de ele rodar, vale a mesma altura calculada pelo CSS do `embed.html`, então o iframe nunca aparece cortado.
+
 Se o texto da página mudar, meça de novo a proporção altura/largura no celular e a altura no desktop e atualize `embed.html`.
 
 ## Antes de publicar

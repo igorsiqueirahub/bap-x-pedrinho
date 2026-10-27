@@ -27,7 +27,8 @@ Páginas jornalísticas feitas para embutir (iframe) em reportagens do UOL e pub
 
 - Pensado primeiro para o celular (360–390px): sem rolagem lateral, toques de 40px ou mais, texto de pelo menos 12px.
 - Enxuto: não repetir a mesma informação em dois blocos.
-- Arquivo único (`index.html`), com imagens embutidas em base64, sem script (só Google Fonts).
+- Arquivo único (`index.html`), com imagens embutidas em base64 e sem dependências externas (só Google Fonts).
+- Dois embeds: `embed.html` (só iframe, para o UOL) e `embed-script.html` (para sites que aceitam script). O único script da página informa a altura ao site (`postMessage` do tipo `<repositório>:altura`); o embed só com iframe não depende dele.
 - **O UOL só aceita iframe, sem script.** A altura do iframe é calculada só com CSS, como em `flamengo-frustracoes`:
   - todos os tamanhos em `rem`; no celular `html { font-size: calc(100vw / 22.5) }` (até 480px de largura), no desktop `calc(min(100vw, 640px) / 40)` com a coluna em `max-width: 40rem`. Assim a altura é proporcional à largura no celular e fixa no desktop;
   - nada que mude a altura depois de carregar: sem blocos recolhíveis, abas ou âncoras de navegação;
