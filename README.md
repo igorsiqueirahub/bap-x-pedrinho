@@ -14,7 +14,7 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 Copie o conteúdo de [`embed.html`](embed.html) para o código-fonte da matéria.
 
-O iframe mostra a página inteira, sem barra de rolagem e sem script (o UOL só aceita iframe). Todos os tamanhos da página são proporcionais à largura, então a altura do iframe é calculada só com CSS: no celular (tela até 512px), 28,8 vezes a largura da coluna + 16px; no desktop e no tablet, 7.540px. Mesmo modelo de `flamengo-frustracoes`.
+O iframe mostra a página inteira, sem barra de rolagem e sem script (o UOL só aceita iframe). Todos os tamanhos da página são proporcionais à largura, então a altura do iframe é calculada só com CSS: no celular (tela até 512px), 26 vezes a largura da coluna + 16px; no desktop e no tablet, 6.770px. Mesmo modelo de `flamengo-frustracoes`.
 
 ### Versão com script
 
