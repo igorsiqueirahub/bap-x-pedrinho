@@ -117,8 +117,9 @@
 
   /* Carta */
   .letter { margin: 20px 0; padding: 22px; border: 1px dashed var(--ink-3); border-radius: 10px; font: 400 17px/1.55 var(--serif); }
-  .letter .tag { font: 700 12px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; display: block; }
+  .letter .tag { font: 700 12px/1.35 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; display: block; }
   .letter p:last-child { margin-bottom: 0; }
+  .letter .letter-note { font: 400 13px/1.45 var(--sans); color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 4px; }
 
   /* Decisão */
   .verdict { border: 2px solid var(--court); border-radius: 12px; overflow: hidden; margin: 8px 0 16px; }
@@ -191,6 +192,7 @@
     .quote { padding: 18px 16px 14px; }
     .quote blockquote { font-size: 20px; }
     .quote.small blockquote { font-size: 17px; }
+    .letter { padding: 18px 16px; font-size: 16px; }
     h2 { font-size: 24px; }
     section.chapter { margin-top: 44px; }
   }
@@ -308,10 +310,14 @@
       <div class="ask"><span class="big">48 horas</span><p>para Pedrinho se desculpar em público</p></div>
       <div class="ask"><span class="big">R$ 10 mil</span><p>de multa por descumprimento, até R$ 150 mil</p></div>
     </div>
-    <p>Bap dispensou a tentativa de acordo e anexou à ação o texto pronto das desculpas, que Pedrinho teria de publicar sem comentários:</p>
+    <p>Bap dispensou a tentativa de acordo e anexou à ação o texto pronto das desculpas. Pedrinho teria de publicá-lo nos mesmos canais em que falou, inclusive nas redes sociais, e mantê-lo no ar sem prazo para sair. Esta é a íntegra:</p>
     <div class="letter">
-      <span class="tag">Trecho do texto proposto por Bap</span>
-      <p>“Retiro integralmente as referidas expressões e apresento ao Senhor Luiz Eduardo Baptista as minhas desculpas públicas.”</p>
+      <span class="tag">Carta de retratação proposta por Bap</span>
+      <p>Eu, PEDRO PAULO DE OLIVEIRA, Presidente do Club de Regatas Vasco da Gama, venho a público retratar-me das declarações que proferi em 19 de agosto de 2026 a respeito do Senhor LUIZ EDUARDO BAPTISTA, Presidente do Clube de Regatas do Flamengo.</p>
+      <p>Naquela oportunidade, referi-me à sua pessoa como “mau-caráter”, “arrogante”, “prepotente”, “soberbo”, “hipócrita” e “irresponsável”. Reconheço que tais expressões não descrevem a conduta do Senhor Luiz Eduardo Baptista, não se referem a fato algum e ultrapassaram os limites do debate legítimo entre dirigentes de clubes de futebol.</p>
+      <p>Retiro integralmente as referidas expressões e apresento ao Senhor Luiz Eduardo Baptista as minhas desculpas públicas, com a mesma projeção que as declarações originais alcançaram.</p>
+      <p>Divergências quanto a atos de gestão e a posições institucionais entre clubes são próprias da atividade que exercemos e devem ser resolvidas nos foros próprios, sem que se atinja a honra pessoal de quem quer que seja.</p>
+      <p class="letter-note">A ação pede que o texto seja publicado “sem inserção de comentários, ressalvas, ironias ou qualificações adicionais”.</p>
     </div>
     <ol class="args fla">
       <li><strong>O ataque foi pessoal, e anunciado.</strong>Ao dizer “zero instituição”, o próprio Pedrinho separou a pessoa do clube.</li>
