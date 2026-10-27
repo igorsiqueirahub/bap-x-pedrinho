@@ -15,14 +15,18 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 ```html
 <iframe id="embed-bap-pedrinho"
         src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
-        style="width:100%;border:0;height:4800px"
+        style="width:100%;border:0;height:9200px"
         title="Bap x Pedrinho: entenda a briga na Justiça"
         loading="lazy"></iframe>
 <script>
-  // A página envia a própria altura; o iframe se ajusta ao conteúdo
+  // A página envia a própria altura (o iframe se ajusta ao conteúdo)
+  // e pede rolagem quando o leitor clica no índice
   window.addEventListener("message", function (e) {
-    if (e.data && e.data.type === "embed-height") {
-      document.getElementById("embed-bap-pedrinho").style.height = e.data.height + "px";
+    var f = document.getElementById("embed-bap-pedrinho");
+    if (!e.data || !f) return;
+    if (e.data.type === "embed-height") f.style.height = e.data.height + "px";
+    if (e.data.type === "embed-scroll") {
+      window.scrollTo({ top: f.getBoundingClientRect().top + window.scrollY + e.data.top, behavior: "smooth" });
     }
   });
 </script>
@@ -30,4 +34,4 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 ## Antes de publicar
 
-- Atualizar o status do processo se houver decisão ou defesa de Pedrinho (o texto atual vai até o registro da ação, em 25/08/2026).
+- Conteúdo atualizado até a réplica de Bap (20/10/2026). Atualizar se houver nova decisão.
