@@ -17,7 +17,7 @@ O UOL só aceita iframe, sem script. A altura é fixa e precisa caber o celular:
 ```html
 <iframe src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
         width="100%" height="7700" frameborder="0"
-        title="Bap x Pedrinho: entenda a briga na Justiça"
+        title="A briga Pedrinho x Bap na Justiça"
         loading="lazy"></iframe>
 ```
 
