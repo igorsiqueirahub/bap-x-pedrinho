@@ -201,6 +201,27 @@
   details.more > summary::after { content: "+"; font: 400 20px/1 var(--sans); }
   details.more[open] > summary { display: none; }
   details.more[open] > .inner { margin-top: 0; }
+  /* Os quatro lances */
+  .lances { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .lances li { display: flex; }
+  .lances a { flex: 1; display: flex; flex-direction: column; gap: 4px; min-height: 64px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--rule); border-top-width: 4px; color: var(--ink); text-decoration: none; }
+  .lances li.fla a { border-top-color: var(--fla); }
+  .lances li.vas a { border-top-color: var(--vas); }
+  .lances li.court a { border-top-color: var(--court); }
+  .lances time { font: 700 12px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .lances span { font: 600 15px/1.25 var(--sans); }
+  @media (max-width: 560px) { .lances { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .asks.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .asks.three .ask { padding: 12px; }
+  .asks.three .big { font-size: 24px; }
+  .asks.three p { font-size: 14px; line-height: 1.35; }
+  @media (max-width: 480px) {
+    .asks.three { grid-template-columns: 1fr; gap: 6px; }
+    .asks.three .ask { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 10px; padding: 10px 14px; }
+    .asks.three .big { font-size: 22px; margin: 0; }
+    .asks.three p { font-size: 14px; }
+  }
+  details.more > summary { margin-top: 4px; }
   .foot { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-3); line-height: 1.5; }
   .foot p { margin: 0 0 6px; }
 </style>
@@ -240,119 +261,66 @@
   <section class="tldr" aria-labelledby="tldr-t">
     <p class="tt" id="tldr-t">Resumo rápido</p>
     <dl>
-      <div class="row"><dt>Quem processa</dt><dd>Luiz Eduardo Baptista, o <strong>Bap</strong>, presidente do Flamengo</dd></div>
-      <div class="row"><dt>Quem é processado</dt><dd>Pedro Paulo de Oliveira, o <strong>Pedrinho</strong>, presidente do Vasco</dd></div>
-      <div class="row"><dt>Por quê</dt><dd>Ofensas pessoais ditas por Pedrinho à imprensa em 19 de agosto de 2026</dd></div>
-      <div class="row"><dt>O que Bap pede</dt><dd>Indenização de pelo menos R$ 40 mil e um pedido público de desculpas</dd></div>
-      <div class="row"><dt>Onde corre</dt><dd>1ª Vara Cível da Regional de Bangu, no Tribunal de Justiça do Rio</dd></div>
-      <div class="row"><dt>Como está</dt><dd><span class="status">Em andamento</span>Pedido urgente negado. Os dois lados já apresentaram seus argumentos; ainda não há sentença.</dd></div>
+      <div class="row"><dt>O caso</dt><dd><strong>Bap</strong> processa <strong>Pedrinho</strong> por ter sido chamado de “mau-caráter” e “hipócrita” diante da imprensa, em 19 de agosto</dd></div>
+      <div class="row"><dt>O pedido</dt><dd>Pelo menos R$ 40 mil e um pedido público de desculpas</dd></div>
+      <div class="row"><dt>Como está</dt><dd><span class="status">Em andamento</span>Liminar negada; defesa e réplica já apresentadas; ainda sem sentença</dd></div>
     </dl>
   </section>
 
-  <ul class="toc" aria-label="Neste especial">
-    <li><a href="#origem">A origem</a></li>
-    <li><a href="#pedido">O pedido</a></li>
-    <li><a href="#liminar">A liminar</a></li>
-    <li><a href="#defesa">A defesa</a></li>
-    <li><a href="#replica">A réplica</a></li>
-    <li><a href="#ponto">Ponto a ponto</a></li>
-    <li><a href="#agora">E agora?</a></li>
-  </ul>
-
-
+  <nav aria-label="Os quatro lances do processo">
+    <ol class="lances">
+      <li class="fla"><a href="#pedido"><time datetime="2026-08-25">25 ago</time><span>Bap processa</span></a></li>
+      <li class="court"><a href="#liminar"><time datetime="2026-08-26">26 ago</time><span>Juíza nega liminar</span></a></li>
+      <li class="vas"><a href="#defesa"><time datetime="2026-10-05">5 out</time><span>Pedrinho se defende</span></a></li>
+      <li class="fla"><a href="#replica"><time datetime="2026-10-20">20 out</time><span>Bap rebate</span></a></li>
+    </ol>
+  </nav>
 
   <!-- ORIGEM -->
   <section class="chapter" id="origem" aria-labelledby="h-origem">
     <p class="round neutral"><span class="dot"></span>A origem</p>
     <h2 id="h-origem">Como a briga começou</h2>
-    <p>O estopim foi dinheiro, não um jogo. O Vasco está em recuperação judicial, um processo que dá a empresas endividadas tempo para reorganizar as contas, e continuou investindo no elenco. Em 18 de agosto, o Flamengo pediu à ANRESF, a agência que fiscaliza as finanças dos clubes, que avaliasse se os gastos do rival estão dentro das regras.</p>
-    <p>No dia seguinte, no embarque do time para o Paraguai, Pedrinho foi questionado sobre o assunto. E respondeu mirando o presidente, não o clube.</p>
-
+    <p>Em 18 de agosto, o Flamengo pediu à ANRESF, agência que fiscaliza as finanças dos clubes, que avaliasse os gastos do Vasco, que está em recuperação judicial e seguiu investindo no elenco. No dia seguinte, questionado pela imprensa no embarque do time para o Paraguai, Pedrinho mirou o presidente rival:</p>
     <figure class="quote">
       <blockquote>“Vou falar da pessoa Bap. Zero instituição, tá? Estou falando do Bap especificamente. É mau-caráter, arrogante, prepotente, soberbo e hipócrita.”</blockquote>
       <cite>Pedrinho, em 19 de agosto de 2026</cite>
     </figure>
-    <p>Na sequência da mesma entrevista, ele seguiu:</p>
-    <figure class="quote small vas">
-      <blockquote>“Está muito claro que é uma perseguição à instituição. [...] Ele é um irresponsável, irresponsável, que deve cuidar do clube dele [...] porque tem outros clubes que estão em recuperação judicial, contratando, e ele não abre a boca. [...] Mas, com o Vasco da Gama, ele não vai se criar.”</blockquote>
-      <cite>Trecho transcrito no processo</cite>
-    </figure>
-    <p>Estas são as seis palavras no centro da ação:</p>
+    <p>Mais adiante na entrevista, chamou Bap de irresponsável. São seis palavras no centro da ação:</p>
     <ul class="words" aria-label="Termos usados por Pedrinho">
       <li>mau-caráter</li><li>arrogante</li><li>prepotente</li><li>soberbo</li><li>hipócrita</li><li>irresponsável</li>
     </ul>
-
-    <h3>A rivalidade vinha de antes</h3>
-    <p>Segundo a defesa de Pedrinho, o atrito entre os dois dirigentes era antigo.</p>
-    <details class="more"><summary>Ver o histórico</summary><div class="inner">
+    <details class="more"><summary>A rivalidade vinha de antes</summary><div class="inner">
+    <p class="note">Segundo a defesa de Pedrinho:</p>
     <ol class="timeline">
       <li><time>Out. 2025</time><p class="before">Em áudio de reunião do conselho do Flamengo, revelado pela ESPN, Bap questiona o empréstimo da Crefisa ao Vasco.</p></li>
-      <li><time>Abr. 2026</time><p class="before">Bap volta ao tema e questiona as garantias do empréstimo: “Quem poderia pedir ações da SAF como garantia? Talvez quem queira assumir a SAF do Vasco”. Pedrinho reage e diz que a insinuação põe em dúvida o caráter dele, do técnico e dos jogadores.</p></li>
+      <li><time>Abr. 2026</time><p class="before">Bap volta ao tema: “Quem poderia pedir ações da SAF como garantia? Talvez quem queira assumir a SAF do Vasco”. Pedrinho diz que a insinuação põe em dúvida o caráter dele, do técnico e dos jogadores.</p></li>
       <li><time>Jun. e jul. 2026</time><p class="before">Bap diz que irá à Justiça se a venda da SAF do Vasco for concretizada, e o Flamengo aciona a ANRESF sobre a operação.</p></li>
-      <li><time>Ago. 2026</time><p class="before">Nova notificação do Flamengo à ANRESF, agora sobre a situação financeira do Vasco. Um dia depois, vêm as ofensas.</p></li>
     </ol>
     </div></details>
   </section>
 
-  <!-- LINHA DO TEMPO DO PROCESSO -->
-  <section class="chapter" aria-labelledby="h-tempo">
-    <p class="round neutral"><span class="dot"></span>O processo</p>
-    <h2 id="h-tempo">O caso na Justiça, passo a passo</h2>
-    <ol class="timeline">
-      <li class="fla"><time datetime="2026-08-25">25 de agosto</time><p>Bap entra com a ação e pede que Pedrinho seja obrigado a se desculpar em 48 horas.</p></li>
-      <li class="court"><time datetime="2026-08-26">26 de agosto</time><p>Um dia depois, a juíza nega o pedido urgente, mas manda o processo seguir.</p></li>
-      <li><time datetime="2026-09-14">14 de setembro</time><p>A Justiça registra que Pedrinho recebeu a notificação do processo. Ele tem até 5 de outubro para se defender.</p></li>
-      <li class="vas"><time datetime="2026-10-05">5 de outubro</time><p>No último dia do prazo, Pedrinho apresenta sua defesa.</p></li>
-      <li class="fla"><time datetime="2026-10-20">20 de outubro</time><p>Bap responde à defesa e insiste no pedido de retratação.</p></li>
-      <li class="next"><time>Próximo passo</time><p>A juíza decide se o processo segue contra Pedrinho e quais provas serão analisadas.</p></li>
-    </ol>
-  </section>
-
   <!-- PEDIDO -->
   <section class="chapter" id="pedido" aria-labelledby="h-pedido">
-    <p class="round fla"><span class="dot"></span>Lance 1 · Bap</p>
-    <h2 id="h-pedido">O que Bap pede à Justiça</h2>
-    <div class="asks">
-      <div class="ask">
-        <span class="big">R$ 40 mil</span>
-        <span class="label">Indenização mínima</span>
-        <p>É o valor sugerido. A juíza pode fixar outro, maior ou menor.</p>
-      </div>
-      <div class="ask">
-        <span class="big">48 horas</span>
-        <span class="label">Prazo para se desculpar</span>
-        <p>Bap queria a retratação já, antes do fim do processo, nos mesmos canais e nas redes sociais de Pedrinho.</p>
-      </div>
-      <div class="ask">
-        <span class="big">R$ 10 mil</span>
-        <span class="label">Multa por descumprimento</span>
-        <p>Cobrada a cada descumprimento, até o limite de R$ 150 mil.</p>
-      </div>
-      <div class="ask">
-        <span class="big">Sem acordo</span>
-        <span class="label">Nada de conciliação</span>
-        <p>Bap avisou que não quer audiência para tentar um acerto entre os dois.</p>
-      </div>
+    <p class="round fla"><span class="dot"></span>Lance 1 · 25 de agosto · Bap</p>
+    <h2 id="h-pedido">O pedido: dinheiro e desculpas</h2>
+    <div class="asks three">
+      <div class="ask"><span class="big">R$ 40 mil</span><p>de indenização, no mínimo</p></div>
+      <div class="ask"><span class="big">48 horas</span><p>para Pedrinho se desculpar em público</p></div>
+      <div class="ask"><span class="big">R$ 10 mil</span><p>de multa por descumprimento, até R$ 150 mil</p></div>
     </div>
-
-    <h3>A carta pronta</h3>
-    <p>A ação já traz o texto do pedido de desculpas que Pedrinho teria de publicar, sem comentários nem ironias e sem apagar depois. Um trecho:</p>
+    <p>Bap dispensou a tentativa de acordo e anexou à ação o texto pronto das desculpas, que Pedrinho teria de publicar sem comentários:</p>
     <div class="letter">
-      <span class="tag">Texto proposto por Bap</span>
-      <p>“Reconheço que tais expressões não descrevem a conduta do Senhor Luiz Eduardo Baptista, não se referem a fato algum e ultrapassaram os limites do debate legítimo entre dirigentes de clubes de futebol.</p>
-      <p>Retiro integralmente as referidas expressões e apresento ao Senhor Luiz Eduardo Baptista as minhas desculpas públicas.”</p>
+      <span class="tag">Trecho do texto proposto por Bap</span>
+      <p>“Retiro integralmente as referidas expressões e apresento ao Senhor Luiz Eduardo Baptista as minhas desculpas públicas.”</p>
     </div>
-
-    <h3>Os argumentos de Bap</h3>
     <ol class="args fla">
-      <li><strong>Pedrinho mesmo separou a pessoa do clube.</strong>Ao dizer “zero instituição” antes dos adjetivos, deixou claro que o ataque era pessoal, e não rivalidade entre clubes.</li>
-      <li><strong>Criticar uma decisão é uma coisa. Atacar o caráter é outra.</strong>Para Bap, Pedrinho não rebateu os números levados à ANRESF; foi direto à índole do rival.</li>
-      <li><strong>A repercussão foi enorme.</strong>Quem negocia com patrocinadores, emissoras e outros clubes tem na reputação seu principal instrumento de trabalho.</li>
-      <li><strong>Já houve casos parecidos.</strong>A ação cita uma decisão do Tribunal do Rio que mandou indenizar pessoas chamadas de “mau-caráter”, e condenações de R$ 50 mil em processos dos atores Wagner Moura e Gregório Duvivier.</li>
+      <li><strong>O ataque foi pessoal, e anunciado.</strong>Ao dizer “zero instituição”, o próprio Pedrinho separou a pessoa do clube.</li>
+      <li><strong>Criticar uma decisão não é atacar o caráter.</strong>Para Bap, Pedrinho não rebateu os números levados à ANRESF; foi direto à índole do rival.</li>
+      <li><strong>Já houve condenações parecidas.</strong>A ação cita indenizações de R$ 50 mil a Wagner Moura e Gregório Duvivier.</li>
     </ol>
     <div class="stats">
       <div class="stat"><span class="n">16</span><span class="t">veículos reproduziram a fala em 48 horas</span></div>
-      <div class="stat"><span class="n">88 mil</span><span class="t">interações em apenas seis posts</span></div>
+      <div class="stat"><span class="n">88 mil</span><span class="t">interações em seis posts</span></div>
       <div class="stat"><span class="n">0</span><span class="t">pedidos de desculpas até a ação</span></div>
     </div>
     <p class="note">Números apresentados pela defesa de Bap.</p>
@@ -360,81 +328,66 @@
 
   <!-- LIMINAR -->
   <section class="chapter" id="liminar" aria-labelledby="h-liminar">
-    <p class="round court"><span class="dot"></span>Lance 2 · Justiça</p>
-    <h2 id="h-liminar">A juíza nega o pedido de desculpas imediato</h2>
-    <p>Bap queria a retratação antes mesmo de Pedrinho se defender. É o que se chama de liminar. Em 26 de agosto, um dia depois da ação, a juíza Claudia Leonor Jourdan Gomes Bobsin disse não.</p>
-
+    <p class="round court"><span class="dot"></span>Lance 2 · 26 de agosto · Justiça</p>
+    <h2 id="h-liminar">A juíza nega as desculpas imediatas</h2>
+    <p>Um dia depois da ação, a juíza Claudia Leonor Jourdan Gomes Bobsin recusou a liminar, a decisão provisória que obrigaria Pedrinho a se retratar antes mesmo de se defender.</p>
     <div class="verdict">
       <div class="head"><strong>Liminar negada</strong><span>Decisão de 26/08/2026</span></div>
       <div class="cols">
         <div class="col yes">
-          <span class="lbl">O que pesou a favor de Bap</span>
+          <span class="lbl">A favor de Bap</span>
           <ul>
-            <li>As provas indicam que as declarações foram mesmo feitas e tiveram grande repercussão.</li>
-            <li>Há indícios de que Pedrinho mirou a pessoa, e não o clube.</li>
-            <li>A juíza não descartou que Bap vença no fim.</li>
+            <li>As declarações foram feitas e tiveram grande repercussão.</li>
+            <li>Há indícios de que Pedrinho mirou a pessoa, não o clube.</li>
           </ul>
         </div>
         <div class="col no">
-          <span class="lbl">Por que ela negou</span>
+          <span class="lbl">Por que negou</span>
           <ul>
-            <li>Não havia urgência que justificasse decidir antes de ouvir Pedrinho.</li>
-            <li>Mandar publicar as desculpas já seria antecipar o resultado do processo.</li>
-            <li>O caso exige pesar honra e liberdade de expressão.</li>
-            <li>Uma retratação pública não pode ser desfeita se Bap perder.</li>
+            <li>Não havia urgência para decidir sem ouvir Pedrinho.</li>
+            <li>Desculpas públicas não podem ser desfeitas se Bap perder.</li>
           </ul>
         </div>
       </div>
     </div>
-    <figure class="quote court small">
-      <blockquote>“Uma vez realizada a retratação pública, seus efeitos não poderão ser plenamente desfeitos caso, ao final, conclua-se pela inexistência de ato ilícito.”</blockquote>
-      <cite>Trecho da decisão</cite>
-    </figure>
-    <p>Na mesma decisão, a juíza atendeu a outro pedido de Bap: deixou sob sigilo duas atas internas do Flamengo anexadas ao processo, porque elas traziam dados pessoais de pessoas que não fazem parte da briga.</p>
   </section>
 
   <!-- DEFESA -->
   <section class="chapter" id="defesa" aria-labelledby="h-defesa">
-    <p class="round vas"><span class="dot"></span>Lance 3 · Pedrinho</p>
+    <p class="round vas"><span class="dot"></span>Lance 3 · 5 de outubro · Pedrinho</p>
     <h2 id="h-defesa">A defesa: foi opinião, não ofensa</h2>
-    <p>Pedrinho não nega o que disse. Sua defesa admite que “a linguagem foi dura”, mas argumenta que a fala foi uma crítica dentro de um debate público, e não um ataque gratuito.</p>
+    <p>Pedrinho não nega o que disse e admite que “a linguagem foi dura”. Mas pede o fim do processo ou a vitória na ação.</p>
     <ol class="args vas">
-      <li><strong>O processo deveria ser contra o Vasco, não contra ele.</strong>Se Bap diz que Pedrinho falou como presidente, em ato oficial do clube, então quem responde é o clube. Por isso, pede que a ação seja encerrada sem julgamento.</li>
-      <li><strong>A fala foi recortada.</strong>Logo depois dos adjetivos, Pedrinho explicou por que criticava Bap: a ida à ANRESF seria uma perseguição ao Vasco. E “irresponsável” veio em outro trecho, ligado a essa crítica.</li>
-      <li><strong>Opinião não é acusação.</strong>“Arrogante”, “soberbo” e “hipócrita” são avaliações pessoais, que não dá para provar verdadeiras ou falsas. Pedrinho não acusou Bap de crime, fraude ou corrupção.</li>
+      <li><strong>O alvo deveria ser o Vasco.</strong>Se Bap diz que Pedrinho falou como presidente, em ato oficial, quem responde é o clube.</li>
+      <li><strong>A fala foi recortada.</strong>Logo depois dos adjetivos, ele explicou o motivo: “Está muito claro que é uma perseguição à instituição.”</li>
+      <li><strong>Opinião não é acusação.</strong>Pedrinho não acusou Bap de crime, fraude ou corrupção; “hipócrita” e “soberbo” são avaliações pessoais.</li>
     </ol>
     <details class="more"><summary>Ver os outros 4 argumentos</summary><div class="inner">
     <ol class="args vas" style="counter-reset: arg 3">
-      <li><strong>Havia motivo para chamá-lo de hipócrita.</strong>Para Pedrinho, Bap cobra igualdade entre os clubes quando o assunto é o Vasco, mas defende com força os interesses do Flamengo, como na briga judicial com a Libra que bloqueou cerca de R$ 77 milhões de outros clubes.</li>
-      <li><strong>Bap também usa linguagem pesada.</strong>A defesa lembra que, em dezembro de 2025, Bap chamou uma jornalista da TV Globo de “nariguda” na Flamengo TV, e cita uma coluna do UOL que apontou a contradição.</li>
-      <li><strong>Faltam provas.</strong>Segundo a defesa, Bap anexou só uma notícia do site do Flamengo, e não a notificação à ANRESF. E curtidas e comentários de terceiros não provam dano à reputação.</li>
-      <li><strong>Ninguém pode ser obrigado a pensar o que não pensa.</strong>A Justiça pode condenar, mas não pode forçar Pedrinho a assinar desculpas escritas pelo adversário. “Não pode fabricar arrependimento.”</li>
-        </ol>
+      <li><strong>Havia motivo para chamá-lo de hipócrita.</strong>Bap cobraria igualdade quando o assunto é o Vasco, mas defende o Flamengo com força, como na briga com a Libra que bloqueou cerca de R$ 77 milhões de outros clubes.</li>
+      <li><strong>Bap também usa linguagem pesada.</strong>Em dezembro de 2025, chamou uma jornalista da TV Globo de “nariguda” na Flamengo TV.</li>
+      <li><strong>Faltam provas.</strong>Bap juntou só uma notícia do site do Flamengo, não a notificação à ANRESF; e curtidas não provam dano.</li>
+      <li><strong>Ninguém pode ser obrigado a pensar o que não pensa.</strong>A Justiça pode condenar, mas “não pode fabricar arrependimento”.</li>
+    </ol>
     </div></details>
-
-    <div class="box vas">
-      <span class="bt">O que Pedrinho pede</span>
-      <p>Que o processo seja encerrado ou que Bap perca. Se for condenado, que a indenização seja fixada em patamar “módico” e que não precise pedir desculpas com o texto de Bap. No máximo, divulgaria a decisão judicial, por prazo certo e só em canais que ele controla.</p>
-    </div>
   </section>
 
   <!-- RÉPLICA -->
   <section class="chapter" id="replica" aria-labelledby="h-replica">
-    <p class="round fla"><span class="dot"></span>Lance 4 · Bap</p>
+    <p class="round fla"><span class="dot"></span>Lance 4 · 20 de outubro · Bap</p>
     <h2 id="h-replica">A réplica: Pedrinho não nega o que disse</h2>
-    <p>Em 20 de outubro, Bap respondeu à defesa. O ponto de partida: Pedrinho admite as palavras, então só resta decidir se elas passaram do limite.</p>
+    <p>Para Bap, se as palavras são admitidas, só resta decidir se passaram do limite.</p>
     <ol class="args fla">
-      <li><strong>Quem fala responde pelo que diz.</strong>Ser presidente explica por que a fala teve tanto alcance, mas não transfere a autoria das palavras para o clube.</li>
-      <li><strong>Uma alfinetada.</strong>Bap registra “estranheza” com o fato de o advogado que assina a defesa, Rafael Faria, ser também diretor jurídico do Vasco, o mesmo clube que a defesa diz que deveria ser processado.</li>
-      <li><strong>Briga antiga não dá licença para ofender.</strong>Libra, SAF, Maracanã: nada disso está em julgamento. E fatos posteriores a 19 de agosto não podem ter motivado uma fala anterior.</li>
+      <li><strong>Quem fala responde pelo que diz.</strong>O cargo explica o alcance da fala, mas não transfere a autoria ao clube.</li>
+      <li><strong>Uma alfinetada.</strong>O advogado de Pedrinho, Rafael Faria, é também diretor jurídico do Vasco, o clube que a defesa diz que deveria ser processado.</li>
+      <li><strong>Um recuo.</strong>Bap aceita trocar o texto das desculpas por um esclarecimento objetivo ou pela divulgação da decisão.</li>
     </ol>
     <details class="more"><summary>Ver os outros 2 argumentos</summary><div class="inner">
     <ol class="args fla" style="counter-reset: arg 3">
-      <li><strong>Ofensa à honra não precisa ser acusação de crime.</strong>Também não é preciso provar contrato perdido ou patrocínio recusado para haver dano moral.</li>
-      <li><strong>Um recuo na retratação.</strong>Bap mantém o pedido, mas admite uma saída mais branda: em vez do texto integral, Pedrinho poderia divulgar um esclarecimento objetivo ou a própria decisão judicial.</li>
-        </ol>
+      <li><strong>Briga antiga não dá licença para ofender.</strong>Libra, SAF e Maracanã não estão em julgamento, e fatos posteriores a 19 de agosto não podem ter motivado a fala.</li>
+      <li><strong>Ofensa à honra não precisa ser acusação de crime.</strong>Nem é preciso provar contrato ou patrocínio perdido.</li>
+    </ol>
     </div></details>
-
   </section>
 
   <!-- PONTO A PONTO -->
@@ -446,34 +399,20 @@
         <p class="topic">Quem deve responder?</p>
         <div class="pair">
           <div class="b"><span class="who">Bap</span><p>Pedrinho, que disse as palavras.</p></div>
-          <div class="p"><span class="who">Pedrinho</span><p>O Vasco, já que ele falou como presidente.</p></div>
+          <div class="p"><span class="who">Pedrinho</span><p>O Vasco, já que falou como presidente.</p></div>
         </div>
       </div>
       <div class="vs-row">
-        <p class="topic">Foi ofensa ou opinião?</p>
+        <p class="topic">Ofensa ou opinião?</p>
         <div class="pair">
           <div class="b"><span class="who">Bap</span><p>Ataque ao caráter, anunciado como pessoal.</p></div>
-          <div class="p"><span class="who">Pedrinho</span><p>Opinião dura, dentro de um debate público.</p></div>
+          <div class="p"><span class="who">Pedrinho</span><p>Opinião dura, em debate público.</p></div>
         </div>
       </div>
       <div class="vs-row">
-        <p class="topic">A rivalidade importa?</p>
+        <p class="topic">Desculpas públicas</p>
         <div class="pair">
-          <div class="b"><span class="who">Bap</span><p>Não. Briga antiga não autoriza insulto.</p></div>
-          <div class="p"><span class="who">Pedrinho</span><p>Sim. Mostra que a fala não foi gratuita.</p></div>
-        </div>
-      </div>
-      <div class="vs-row">
-        <p class="topic">Houve dano?</p>
-        <div class="pair">
-          <div class="b"><span class="who">Bap</span><p>Sim: 16 veículos e 88 mil interações.</p></div>
-          <div class="p"><span class="who">Pedrinho</span><p>Não provado. Repercussão não é prejuízo.</p></div>
-        </div>
-      </div>
-      <div class="vs-row">
-        <p class="topic">Pedido de desculpas</p>
-        <div class="pair">
-          <div class="b"><span class="who">Bap</span><p>Quer o texto dele, mas aceita versão mais objetiva.</p></div>
+          <div class="b"><span class="who">Bap</span><p>Quer, mas aceita versão mais objetiva.</p></div>
           <div class="p"><span class="who">Pedrinho</span><p>Recusa. No máximo, divulgar a decisão.</p></div>
         </div>
       </div>
@@ -481,7 +420,7 @@
         <p class="topic">Indenização</p>
         <div class="pair">
           <div class="b"><span class="who">Bap</span><p>Pelo menos R$ 40 mil.</p></div>
-          <div class="p"><span class="who">Pedrinho</span><p>Nenhuma; se houver, valor “módico”.</p></div>
+          <div class="p"><span class="who">Pedrinho</span><p>Nenhuma; se houver, em patamar “módico”.</p></div>
         </div>
       </div>
     </div>
@@ -490,13 +429,11 @@
   <!-- E AGORA -->
   <section class="chapter" id="agora" aria-labelledby="h-agora">
     <p class="round neutral"><span class="dot"></span>Próximos capítulos</p>
-    <h2 id="h-agora">E agora, o que pode acontecer?</h2>
+    <h2 id="h-agora">E agora?</h2>
     <div class="steps">
-      <div class="step done"><span class="ico" aria-hidden="true">✓</span><p><strong>Pedido, defesa e réplica.</strong> Os dois lados já falaram.</p></div>
-      <div class="step"><span class="ico" aria-hidden="true">1</span><p><strong>Quem fica no processo.</strong> A juíza decide se a ação segue contra Pedrinho ou se deveria ser contra o Vasco.</p></div>
-      <div class="step"><span class="ico" aria-hidden="true">2</span><p><strong>Provas.</strong> Ela define o que será analisado: o vídeo completo da entrevista, a notificação à ANRESF, depoimentos de jornalistas.</p></div>
-      <div class="step"><span class="ico" aria-hidden="true">3</span><p><strong>Sentença.</strong> A Justiça decide se houve ofensa, quanto Pedrinho paga e se precisa se retratar, e de que forma.</p></div>
-      <div class="step"><span class="ico" aria-hidden="true">4</span><p><strong>Recurso.</strong> Quem perder pode recorrer ao Tribunal de Justiça do Rio.</p></div>
+      <div class="step"><span class="ico" aria-hidden="true">1</span><p><strong>Provas.</strong> A juíza decide se o caso segue contra Pedrinho e o que será analisado, como o vídeo completo da entrevista.</p></div>
+      <div class="step"><span class="ico" aria-hidden="true">2</span><p><strong>Sentença.</strong> Define se houve ofensa, quanto Pedrinho paga e se precisa se retratar.</p></div>
+      <div class="step"><span class="ico" aria-hidden="true">3</span><p><strong>Recurso.</strong> Quem perder pode recorrer ao Tribunal de Justiça do Rio.</p></div>
     </div>
   </section>
 
@@ -538,7 +475,7 @@
     window.addEventListener("resize", send);
     document.querySelectorAll("details").forEach(function (d) { d.addEventListener("toggle", send); });
     // Índice: dentro de um iframe de altura automática, quem rola é a página do site
-    document.querySelectorAll('.toc a').forEach(function (a) {
+    document.querySelectorAll('.lances a').forEach(function (a) {
       a.addEventListener("click", function (e) {
         var el = document.querySelector(a.getAttribute("href"));
         if (!el || window.parent === window) return;
