@@ -8,13 +8,13 @@ Página de serviço que resume a ação por danos morais movida pelo presidente 
 
 Settings → Pages → Source: *Deploy from a branch* → Branch `main`, pasta `/ (root)`.
 
-A página fica em `https://<usuario>.github.io/<repositorio>/`.
+A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 ## Embed
 
 ```html
 <iframe id="embed-bap-pedrinho"
-        src="https://<usuario>.github.io/<repositorio>/"
+        src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
         style="width:100%;border:0;height:4800px"
         title="Bap x Pedrinho: entenda a briga na Justiça"
         loading="lazy"></iframe>
