@@ -12,25 +12,29 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 
 ## Embed
 
+O UOL só aceita iframe, sem script. A altura é fixa e precisa caber o celular:
+
 ```html
-<iframe id="embed-bap-pedrinho"
-        src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
-        style="width:100%;border:0;height:7200px"
+<iframe src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
+        width="100%" height="7700" frameborder="0"
         title="Bap x Pedrinho: entenda a briga na Justiça"
         loading="lazy"></iframe>
-<script>
-  // A página envia a própria altura (o iframe se ajusta ao conteúdo)
-  // e pede rolagem quando o leitor clica no índice
-  window.addEventListener("message", function (e) {
-    var f = document.getElementById("embed-bap-pedrinho");
-    if (!e.data || !f) return;
-    if (e.data.type === "embed-height") f.style.height = e.data.height + "px";
-    if (e.data.type === "embed-scroll") {
-      window.scrollTo({ top: f.getBoundingClientRect().top + window.scrollY + e.data.top, behavior: "smooth" });
-    }
-  });
-</script>
 ```
+
+Altura da página, com os blocos recolhíveis fechados:
+
+| Largura da coluna | Altura |
+|---|---|
+| 320px | 8.285px |
+| 360px | 7.589px |
+| 390px | 7.097px |
+| 414px | 6.882px |
+| 600px | 6.024px |
+| 720px ou mais | 5.574px |
+
+Abaixo de 360px, ou com os blocos recolhíveis abertos, o conteúdo passa da altura do iframe e aparece uma rolagem interna. No desktop sobra espaço em branco no fim.
+
+Se o sistema permitir altura diferente para celular e desktop: `7700` no celular e `5700` no desktop.
 
 ## Antes de publicar
 
