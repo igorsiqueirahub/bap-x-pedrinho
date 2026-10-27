@@ -15,7 +15,7 @@ A página está em https://igorsiqueirahub.github.io/bap-x-pedrinho/
 ```html
 <iframe id="embed-bap-pedrinho"
         src="https://igorsiqueirahub.github.io/bap-x-pedrinho/"
-        style="width:100%;border:0;height:9200px"
+        style="width:100%;border:0;height:8000px"
         title="Bap x Pedrinho: entenda a briga na Justiça"
         loading="lazy"></iframe>
 <script>
