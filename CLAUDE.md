@@ -32,6 +32,6 @@ Páginas jornalísticas feitas para embutir (iframe) em reportagens do UOL e pub
 - **O UOL só aceita iframe, sem script.** A altura do iframe é calculada só com CSS, como em `flamengo-frustracoes`:
   - todos os tamanhos em `rem`; no celular `html { font-size: calc(100vw / 22.5) }` (até 480px de largura), no desktop `calc(min(100vw, 640px) / 40)` com a coluna em `max-width: 40rem`. Assim a altura é proporcional à largura no celular e fixa no desktop;
   - nada que mude a altura depois de carregar: sem blocos recolhíveis, abas ou âncoras de navegação;
-  - o código vai em `embed.html`: `height: max(ALTURA_DESKTOP, min(calc((100vw - 32px) * RAZÃO + folga), calc((513px - 100vw) * 100000)))`, com fios `#E6E6E6` acima e abaixo e 8px de margem;
-  - depois de qualquer mudança de texto, meça de novo a razão altura/largura (celular) e a altura no desktop, e teste o embed numa página simulada para conferir que não corta nem sobra espaço.
+  - o código vai em `embed.html`: `height: max(min(calc((100vw - 32px) * RAZÃO_TABLET + folga), ALTURA_DESKTOP), min(calc((100vw - 32px) * RAZÃO_CELULAR + folga), calc((513px - 100vw) * 100000)))`, com fios `#E6E6E6` acima e abaixo e 8px de margem. A faixa de tablet (telas de 513 a 671px) evita centenas de pixels em branco nessas larguras;
+  - depois de qualquer mudança de texto, meça de novo a razão altura/largura no celular (até 480px de coluna) e no tablet (481 a 639px), e a altura no desktop, e teste o embed numa página simulada para conferir que não corta nem sobra espaço.
 - Depois de publicar, confira a versão no ar no GitHub Pages e veja a página em largura de celular.
